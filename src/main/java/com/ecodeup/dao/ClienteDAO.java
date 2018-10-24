@@ -29,17 +29,17 @@ public class ClienteDAO {
 	}
 	
 	//buscar cliente
-	public Cliente buscar(int id) {
+	public Cliente buscar(Long id) {
 		Cliente c = new Cliente();
 		c=entity.find(Cliente.class,id);
-		JPAUtil.shutdown();
+		//JPAUtil.shutdown();
 		return c;
 	}
 	
 	// obtener todos los cliente
 	public List<Cliente> obtenerClientes(){
 		List<Cliente> listaClientes= new ArrayList<>();
-		Query q=entity.createQuery("SELECT c FROM CLIENTE c");
+		Query q=entity.createQuery("SELECT c FROM Cliente c");
 		listaClientes=q.getResultList();
 		return listaClientes;
 	}

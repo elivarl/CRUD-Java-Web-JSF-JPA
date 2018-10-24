@@ -1,11 +1,58 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Insert title here</title>
-</head>
-<body>
-<h1>Hola JSF</h1>
-</body>
+<!DOCTYPE HTML>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<title>Plantilla Básica JSF</title>
+</h:head>
+<h:body>
+	<h2>
+		<h:outputText value="Lista Clientes"></h:outputText>
+	</h2>
+	<h:form>
+		<h:dataTable value="#{clienteBean.obtenerClientes()}" var="cliente"
+			border="1">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{cliente.id}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nombres</f:facet>
+				<h:outputText value="#{cliente.nombres}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Apellidos</f:facet>
+				<h:outputText value="#{cliente.apellidos}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Direccion</f:facet>
+				<h:outputText value="#{cliente.direccion}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Email</f:facet>
+				<h:outputText value="#{cliente.email}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefono</f:facet>
+				<h:outputText value="#{cliente.telefono}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">F. Registro</f:facet>
+				<h:outputText value="#{cliente.fregistro}"></h:outputText>
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">F. Actualizar</f:facet>
+				<h:outputText value="#{cliente.factualizar}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Editar</f:facet>
+				<h:commandButton action="#{clienteBean.editar(cliente.id)}" value="Editar"></h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
+</h:body>
 </html>
