@@ -2,9 +2,11 @@ package com.ecodeup.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import com.ecodeup.dao.ClienteDAO;
 import com.ecodeup.model.Cliente;
@@ -35,12 +37,22 @@ public class ClienteBean {
 		return clienteDAO.obtenerClientes();
 	}
 	
-	public void editar(Long id) {
+	public String editar(Long id) {
 		ClienteDAO clienteDAO= new ClienteDAO();
 		Cliente c= new Cliente();
 		c=clienteDAO.buscar(id);
 		System.out.println("******************************************");		
-		System.out.println(c);		
+		System.out.println(c);	
+		
+		Map<String, Object> sessionMap=FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
+		sessionMap.put("cliente", c);
+		return "/faces/editar.xhtml";
+	}
+	
+	public String actualizar(Cliente cliente) {
+		ClienteDAO clienteDAO = new ClienteDAO();
+		clienteDAO.editar(cliente);
+		return "/faces/index.xhtml";
 	}
 
 	

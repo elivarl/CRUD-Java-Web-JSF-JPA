@@ -25,7 +25,7 @@ public class ClienteDAO {
 		entity.getTransaction().begin();
 		entity.merge(cliente);
 		entity.getTransaction().commit();
-		JPAUtil.shutdown();
+		///JPAUtil.shutdown();
 	}
 	
 	//buscar cliente
