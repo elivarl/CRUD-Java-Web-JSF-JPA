@@ -52,6 +52,10 @@
 				<f:facet name="header">Editar</f:facet>
 				<h:commandButton action="#{clienteBean.editar(cliente.id)}" value="Editar"></h:commandButton>
 			</h:column>
+			<h:column>
+				<f:facet name="header">Eliminar</f:facet>
+				<h:commandButton action="#{clienteBean.eliminar(cliente.id)}" value="Eliminar"></h:commandButton>
+			</h:column>
 		</h:dataTable>
 	</h:form>
 </h:body>

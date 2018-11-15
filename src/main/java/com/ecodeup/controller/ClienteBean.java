@@ -54,6 +54,13 @@ public class ClienteBean {
 		clienteDAO.editar(cliente);
 		return "/faces/index.xhtml";
 	}
-
+	
+	//eliminar un cliente
+	public String eliminar(Long id) {
+		ClienteDAO clienteDAO= new ClienteDAO();
+		clienteDAO.eliminar(id);
+		System.out.println("Cliente eliminado..");
+		return "/faces/index.xhtml";
+	}
 	
 }
