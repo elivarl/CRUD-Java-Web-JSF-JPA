@@ -1,6 +1,7 @@
 package com.ecodeup.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,10 @@ public class ClienteBean {
 	}
 	
 	public String guardar (Cliente cliente) {
+		//guarda la fecha de registro
+		Date fechaActual= new Date();
+		cliente.setFregistro(new java.sql.Date(fechaActual.getTime()));
+		
 		ClienteDAO clienteDAO= new ClienteDAO();
 		clienteDAO.guardar(cliente);
 		return  "/faces/index.xhtml";
@@ -58,6 +63,10 @@ public class ClienteBean {
 	}
 
 	public String actualizar(Cliente cliente) {
+		//guarda la fecha de actualizacion
+		Date fechaActual= new Date();
+		cliente.setFactualizar(new java.sql.Date(fechaActual.getTime()));
+		
 		ClienteDAO clienteDAO = new ClienteDAO();
 		clienteDAO.editar(cliente);
 		return "/faces/index.xhtml";
