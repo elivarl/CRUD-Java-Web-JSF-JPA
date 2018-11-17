@@ -13,6 +13,8 @@
 		<h:outputText value="Lista Clientes"></h:outputText>
 	</h2>
 	<h:form>
+	<h:commandButton action="#{clienteBean.nuevo()}" value="Nuevo Cliente"></h:commandButton>
+	
 		<h:dataTable value="#{clienteBean.obtenerClientes()}" var="cliente"
 			border="1">
 			<h:column>
